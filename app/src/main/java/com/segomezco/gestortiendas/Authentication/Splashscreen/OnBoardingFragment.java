@@ -1,4 +1,4 @@
-package com.segomezco.gestortiendas.Authentication.splashscreen;
+package com.segomezco.gestortiendas.Authentication.Splashscreen;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -37,6 +37,15 @@ public class OnBoardingFragment extends Fragment {
         binding.bttNext.setOnClickListener(v -> {
             int current = binding.viewPagerOnboarding.getCurrentItem();
             binding.viewPagerOnboarding.setCurrentItem(current + 1);
+        });
+
+        binding.bttRegister.setOnClickListener(v -> {
+            NavHostFragment.findNavController(OnBoardingFragment.this)
+                    .navigate(R.id.action_onboardingFragment_to_registerFragment);
+        });
+        binding.bttLogin.setOnClickListener(v -> {
+            NavHostFragment.findNavController(OnBoardingFragment.this)
+                    .navigate(R.id.action_onboardingFragment_to_loginFragment);
         });
 
         binding.viewPagerOnboarding.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
