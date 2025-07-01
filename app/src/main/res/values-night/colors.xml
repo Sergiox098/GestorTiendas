@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Colores principales -->
+    <color name="color_primary">#26A69A</color>              <!-- Un poco más brillante en oscuro -->
+    <color name="color_primary_variant">#1E857B</color>
+    <color name="color_on_primary">#000000</color>           <!-- Contraste sobre color primario -->
+
+    <!-- Colores secundarios -->
+    <color name="color_secondary">#80CBC4</color>
+    <color name="color_secondary_variant">#B2DFDB</color>
+    <color name="color_on_secondary">#000000</color>
+
+    <!-- Fondo y superficie -->
+    <color name="color_background">#121212</color>           <!-- Fondo típico oscuro -->
+    <color name="color_surface">#1E1E1E</color>              <!-- Tarjetas, diálogos -->
+    <color name="color_on_background">#FFFFFF</color>
+    <color name="color_on_surface">#FFFFFF</color>
+
+    <!-- Errores -->
+    <color name="color_error">#CF6679</color>
+    <color name="color_on_error">#000000</color>
+
+    <!-- Básicos -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+</resources>

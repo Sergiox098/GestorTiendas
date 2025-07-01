@@ -17,8 +17,10 @@ firebaseAuth = "23.2.1"
 legacySupportV4 = "1.0.0"
 activity = "1.10.1"
 splashscreen = "1.0.1"
+gridlayout = "1.1.0"
 
 [libraries]
+gridlayout = {group = "androidx.gridlayout", name = "gridlayout", version.ref = "gridlayout" }
 splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashscreen" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
