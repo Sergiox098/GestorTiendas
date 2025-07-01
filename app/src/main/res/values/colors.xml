@@ -1,27 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Colores principales -->
-    <color name="color_primary">#009688</color>
-    <color name="color_primary_variant">#00796B</color>
-    <color name="color_on_primary">#FFFFFF</color>
+    <!-- Colores principales tema claro -->
 
-    <!-- Colores secundarios -->
-    <color name="color_secondary">#4DB6AC</color>
-    <color name="color_secondary_variant">#B2DFDB</color>
-    <color name="color_on_secondary">#000000</color>
+    <!-- Primarios (Verde y Azul) -->
+    <color name="color_primary">#2E7D57</color>           <!-- Verde principal -->
+    <color name="primary_variant">#1B5E3F</color>         <!-- Verde más oscuro -->
+    <color name="secondary_color">#4A90C2</color>         <!-- Azul secundario -->
+    <color name="secondary_variant">#3A7BA8</color>       <!-- Azul más oscuro -->
 
-    <!-- Fondo y superficie -->
-    <color name="color_background">#F5F5F5</color>
-    <color name="color_surface">#FFFFFF</color>
-    <color name="color_on_background">#1C1B1F</color>
-    <color name="color_on_surface">#1C1B1F</color>
+    <!-- Acentos y complementarios -->
+    <color name="accent_color">#5BA8D4</color>            <!-- Azul claro para acentos -->
+    <color name="success_color">#27AE60</color>           <!-- Verde éxito -->
+    <color name="warning_color">#F39C12</color>           <!-- Naranja advertencia -->
+    <color name="error_color">#E74C3C</color>             <!-- Rojo error -->
+    <color name="info_color">#3498DB</color>              <!-- Azul información -->
 
-    <!-- Errores -->
-    <color name="color_error">#B00020</color>
-    <color name="color_on_error">#FFFFFF</color>
+    <!-- Backgrounds -->
+    <color name="background_color">#F8FAFB</color>        <!-- Fondo principal muy claro -->
+    <color name="surface_color">#FFFFFF</color>           <!-- Superficie blanca -->
+    <color name="card_background">#FFFFFF</color>         <!-- Fondo de tarjetas -->
+    <color name="overlay_background">#80FFFFFF</color>    <!-- Overlay blanco semi-transparente -->
 
-    <!-- Neutros -->
+    <!-- Textos -->
+    <color name="text_primary">#2C3E50</color>            <!-- Texto principal oscuro -->
+    <color name="text_secondary">#7F8C8D</color>          <!-- Texto secundario gris -->
+    <color name="text_hint">#BDC3C7</color>               <!-- Texto hint claro -->
+    <color name="text_on_primary">#FFFFFF</color>         <!-- Texto sobre color primario -->
+    <color name="text_on_secondary">#FFFFFF</color>       <!-- Texto sobre color secundario -->
+    <color name="text_disabled">#95A5A6</color>           <!-- Texto deshabilitado -->
 
-    <color name="black">#000000</color>
+    <!-- Divisores y bordes -->
+    <color name="divider_color">#E8E8E8</color>           <!-- Líneas divisorias -->
+    <color name="border_color">#D5DBDB</color>            <!-- Bordes sutiles -->
+    <color name="shadow_color">#1A000000</color>          <!-- Sombras suaves -->
+
+    <!-- Estados -->
+    <color name="ripple_color">#1A2E7D57</color>          <!-- Efecto ripple verde -->
+    <color name="selected_color">#E8F5E8</color>          <!-- Estado seleccionado verde claro -->
+    <color name="pressed_color">#D5EDDB</color>           <!-- Estado presionado -->
+    <color name="hover_color">#F0F7F0</color>             <!-- Estado hover -->
+
+    <!-- Colores básicos -->
     <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
 
+    <!-- Gradientes -->
+    <color name="gradient_start">#2E7D57</color>          <!-- Verde para gradientes -->
+    <color name="gradient_middle">#4A90C2</color>         <!-- Azul para gradientes -->
+    <color name="gradient_end">#5BA8D4</color>            <!-- Azul claro para gradientes -->
 </resources>

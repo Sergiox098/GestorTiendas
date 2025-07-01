@@ -7,52 +7,63 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.segomezco.gestortiendas.Home.HomeFragment"
-        android:label="Home" >
+        android:label="Home">
+        <action
+            android:id="@+id/action_homeFragment_to_createProductFragment"
+            app:destination="@id/productFragment" />
     </fragment>
 
-    <navigation android:id="@+id/navigation2"
-        app:startDestination="@id/loginFragment">
-        <fragment
-            android:id="@+id/loginFragment"
-            android:name="com.segomezco.gestortiendas.Authentication.Login.LoginFragment"
-            android:label="Login">
-            <action
-                android:id="@+id/action_loginFragment_to_onboardingFragment"
-                app:destination="@id/onboardingFragment" />
-            <action
-                android:id="@+id/action_loginFragment_to_registerFragment"
-                app:destination="@id/registerFragment" />
-            <action
-                android:id="@+id/action_loginFragment_to_homeFragment"
-                app:destination="@id/homeFragment" />
-        </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.segomezco.gestortiendas.Authentication.Login.LoginFragment"
+        android:label="Login">
+        <action
+            android:id="@+id/action_loginFragment_to_onboardingFragment"
+            app:destination="@id/onboardingFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 
-        <fragment
-            android:id="@+id/onboardingFragment"
-            android:name="com.segomezco.gestortiendas.Authentication.Splashscreen.OnBoardingFragment"
-            android:label="Onboarding">
-            <action
-                android:id="@+id/action_onboardingFragment_to_registerFragment"
-                app:destination="@id/registerFragment" />
-            <action
-                android:id="@+id/action_onboardingFragment_to_loginFragment"
-                app:destination="@id/loginFragment" />
-        </fragment>
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="com.segomezco.gestortiendas.Authentication.Splashscreen.OnBoardingFragment"
+        android:label="Onboarding">
+        <action
+            android:id="@+id/action_onboardingFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_onboardingFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 
-        <fragment
-            android:id="@+id/registerFragment"
-            android:name="com.segomezco.gestortiendas.Authentication.Register.RegisterFragment"
-            android:label="Register">
-            <action
-                android:id="@+id/action_registerFragment_to_onboardingFragment"
-                app:destination="@id/onboardingFragment" />
-            <action
-                android:id="@+id/action_registerFragment_to_loginFragment"
-                app:destination="@id/loginFragment" />
-            <action
-                android:id="@+id/action_registerFragment_to_homeFragment"
-                app:destination="@id/homeFragment" />
-        </fragment>
-    </navigation>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.segomezco.gestortiendas.Authentication.Register.RegisterFragment"
+        android:label="Register">
+        <action
+            android:id="@+id/action_registerFragment_to_onboardingFragment"
+            app:destination="@id/onboardingFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/productFragment"
+        android:name="com.segomezco.gestortiendas.Product.CreateProduct.CreateProductFragment"
+        android:label="Product">
+        <action
+            android:id="@+id/action_createProductFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+
 
 </navigation>

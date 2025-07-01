@@ -1,10 +1,73 @@
 <resources>
-    <string name="app_name">GestorTiendas</string>
+    <string name="app_name">Gestor de Tiendas</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+
+
+
+    <!-- Navigation -->
+    <string name="home">Inicio</string>
+    <string name="products">Productos</string>
+    <string name="sales">Ventas</string>
+    <string name="reports">Reportes</string>
+    <string name="profile">Perfil</string>
+    <string name="employees">Empleados</string>
+    <string name="notifications">Notificaciones</string>
+
+    <!-- Content descriptions -->
+    <string name="store_logo">Logo de la tienda</string>
+
+    <!-- Home screen -->
+    <string name="quick_access">Accesos Rápidos</string>
+    <string name="today_sales">Ventas Hoy</string>
+    <string name="product_count">Productos</string>
+    <string name="manage_inventory">Gestionar inventario</string>
+    <string name="register_sale">Registrar venta</string>
+    <string name="manage_staff">Gestionar personal</string>
+    <string name="view_statistics">Ver estadísticas</string>
+
+    <!-- Welcome messages -->
+    <string name="welcome_message">¡Hola! Bienvenido</string>
+    <string name="store_open">● Abierta</string>
+    <string name="store_closed">● Cerrada</string>
+
+    <!-- Common -->
+    <string name="loading">Cargando…</string>
+    <string name="error">Error</string>
+    <string name="success">Éxito</string>
+    <string name="cancel">Cancelar</string>
+    <string name="accept">Aceptar</string>
+    <string name="save">Guardar</string>
+    <string name="delete">Eliminar</string>
+    <string name="edit">Editar</string>
+
+    <!-- Auth -->
+    <string name="login">Iniciar Sesión</string>
+    <string name="register">Registrarse</string>
+    <string name="logout">Cerrar Sesión</string>
+    <string name="email">Correo electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="name">Nombre</string>
+    <string name="phone">Teléfono</string>
+    <string name="document">Documento</string>
+
+    <!-- Product -->
+
+    <string name="product_create">Crear Producto</string>
+    <string name="product_name">Nombre del producto</string>
+    <string name="product_description">Descripción del producto</string>
+    <string name="product_price">Precio del producto</string>
+    <string name="product_ref">Referencia del Producto</string>
+    <string name="product_stock">Stock del producto</string>
+    <string name="product_category">Categoría del producto</string>
+    <string name="product_brand">Marca del producto</string>
+    <string name="product_weight">Peso del producto</string>
+    <string name="product_supplier">Proveedor</string>
+    <string name="supplier_contact">Contacto del proveedor</string>
+
 
     <!-- Strings used for fragments for authentication -->
 

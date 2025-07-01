@@ -8,18 +8,21 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
-import com.segomezco.gestortiendas.databinding.FragmentOnboardingBinding;
+import com.segomezco.gestortiendas.R;
+import com.segomezco.gestortiendas.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
 
-    private FragmentOnboardingBinding binding;
+    private FragmentHomeBinding binding;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        binding = FragmentOnboardingBinding.inflate(inflater, container, false);
+        binding = FragmentHomeBinding.inflate(inflater, container, false);
+
         return binding.getRoot();
     }
 
@@ -27,6 +30,9 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view,
                               @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        binding.cardProducts.setOnClickListener(v -> NavHostFragment.findNavController
+                        (HomeFragment.this).navigate(R.id.action_homeFragment_to_createProductFragment));
 
     }
 

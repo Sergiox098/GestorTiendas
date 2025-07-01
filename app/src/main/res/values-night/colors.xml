@@ -1,26 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Colores principales -->
-    <color name="color_primary">#26A69A</color>              <!-- Un poco más brillante en oscuro -->
-    <color name="color_primary_variant">#1E857B</color>
-    <color name="color_on_primary">#000000</color>           <!-- Contraste sobre color primario -->
+    <!-- Colores principales tema oscuro -->
 
-    <!-- Colores secundarios -->
-    <color name="color_secondary">#80CBC4</color>
-    <color name="color_secondary_variant">#B2DFDB</color>
-    <color name="color_on_secondary">#000000</color>
+    <!-- Primarios (Verde y Azul adaptados para modo oscuro) -->
+    <color name="color_primary">#4CAF7A</color>           <!-- Verde más brillante para oscuro -->
+    <color name="primary_variant">#66BB8A</color>         <!-- Verde variante más claro -->
+    <color name="secondary_color">#64B5F6</color>         <!-- Azul más brillante -->
+    <color name="secondary_variant">#90CAF9</color>       <!-- Azul variante más claro -->
 
-    <!-- Fondo y superficie -->
-    <color name="color_background">#121212</color>           <!-- Fondo típico oscuro -->
-    <color name="color_surface">#1E1E1E</color>              <!-- Tarjetas, diálogos -->
-    <color name="color_on_background">#FFFFFF</color>
-    <color name="color_on_surface">#FFFFFF</color>
+    <!-- Acentos y complementarios -->
+    <color name="accent_color">#81C7E8</color>            <!-- Azul claro brillante -->
+    <color name="success_color">#4CAF50</color>           <!-- Verde éxito brillante -->
+    <color name="warning_color">#FF9800</color>           <!-- Naranja advertencia -->
+    <color name="error_color">#F44336</color>             <!-- Rojo error -->
+    <color name="info_color">#2196F3</color>              <!-- Azul información -->
 
-    <!-- Errores -->
-    <color name="color_error">#CF6679</color>
-    <color name="color_on_error">#000000</color>
+    <!-- Backgrounds oscuros -->
+    <color name="background_color">#121212</color>        <!-- Fondo principal muy oscuro -->
+    <color name="surface_color">#1E1E1E</color>           <!-- Superficie oscura -->
+    <color name="card_background">#2C2C2C</color>         <!-- Fondo de tarjetas oscuro -->
+    <color name="overlay_background">#80000000</color>    <!-- Overlay negro semi-transparente -->
 
-    <!-- Básicos -->
-    <color name="black">#000000</color>
+    <!-- Textos para modo oscuro -->
+    <color name="text_primary">#FFFFFF</color>            <!-- Texto principal blanco -->
+    <color name="text_secondary">#B3FFFFFF</color>        <!-- Texto secundario blanco 70% -->
+    <color name="text_hint">#61FFFFFF</color>             <!-- Texto hint blanco 38% -->
+    <color name="text_on_primary">#000000</color>         <!-- Texto sobre color primario -->
+    <color name="text_on_secondary">#000000</color>       <!-- Texto sobre color secundario -->
+    <color name="text_disabled">#61FFFFFF</color>         <!-- Texto deshabilitado -->
+
+    <!-- Divisores y bordes oscuros -->
+    <color name="divider_color">#3C3C3C</color>           <!-- Líneas divisorias oscuras -->
+    <color name="border_color">#484848</color>            <!-- Bordes sutiles oscuros -->
+    <color name="shadow_color">#40000000</color>          <!-- Sombras más intensas -->
+
+    <!-- Estados para modo oscuro -->
+    <color name="ripple_color">#1A4CAF7A</color>          <!-- Efecto ripple verde -->
+    <color name="selected_color">#264CAF50</color>        <!-- Estado seleccionado verde oscuro -->
+    <color name="pressed_color">#1A4CAF50</color>         <!-- Estado presionado -->
+    <color name="hover_color">#0D4CAF50</color>           <!-- Estado hover -->
+
+    <!-- Colores básicos -->
     <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- Gradientes para modo oscuro -->
+    <color name="gradient_start">#4CAF7A</color>          <!-- Verde para gradientes -->
+    <color name="gradient_middle">#64B5F6</color>         <!-- Azul para gradientes -->
+    <color name="gradient_end">#81C7E8</color>            <!-- Azul claro para gradientes -->
 </resources>
