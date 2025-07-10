@@ -32,7 +32,7 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         binding.cardProducts.setOnClickListener(v -> NavHostFragment.findNavController
-                        (HomeFragment.this).navigate(R.id.action_homeFragment_to_createProductFragment));
+                        (HomeFragment.this).navigate(R.id.action_homeFragment_to_readProductFragment));
 
     }
 

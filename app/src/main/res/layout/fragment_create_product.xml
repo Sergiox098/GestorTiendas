@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Authentication.Register.RegisterFragment"
+    tools:context=".Product.CreateProduct.CreateProductFragment"
     android:fillViewport="true"
     android:paddingBottom="300dp"
     android:clipToPadding="false">
@@ -300,6 +300,40 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddImage"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="Seleccionar imagen"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/primary_variant"
+            app:icon="@drawable/ic_add_photo"
+            app:iconPadding="12dp"
+            app:iconGravity="textStart"
+            app:iconTint="@color/color_primary"
+            app:cornerRadius="12dp"
+            android:background="@drawable/button_dashed_border"
+            app:layout_constraintTop_toBottomOf="@id/fieldSupplierContact"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+        <ImageView
+            android:id="@+id/imagePreview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:contentDescription="Vista previa de la imagen"
+            app:layout_constraintTop_toBottomOf="@id/btnAddImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/button_dashed_border"
+            android:visibility="gone"/>
+
+
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSaveProduct"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -308,7 +342,7 @@
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fieldSupplierContact"/>
+            app:layout_constraintTop_toBottomOf="@id/imagePreview"/>
 
         <com.google.android.material.progressindicator.CircularProgressIndicator
             android:id="@+id/progressBar"
@@ -316,6 +350,7 @@
             android:layout_height="wrap_content"
             android:visibility="gone"
             android:layout_gravity="center"
+            android:indeterminate="true"
             app:indicatorSize="48dp"
             app:indicatorColor="@color/color_primary"
             app:trackThickness="6dp"

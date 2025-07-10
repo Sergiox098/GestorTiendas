@@ -1,0 +1,66 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/CustomCardView"
+    android:id="@+id/cardProducts"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackground">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/ivIcon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_shopping_bag"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="@string/products"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/NameProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Productos"
+            android:textColor="@color/text_primary"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginStart="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivIcon"/>
+
+        <TextView
+            android:id="@+id/PriceProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Precio Producto"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:layout_marginStart="20dp"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@id/NameProduct"
+            app:layout_constraintStart_toEndOf="@+id/ivIcon"/>
+
+        <TextView
+            android:id="@+id/StockProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stock de productos"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:layout_marginEnd="15dp"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@id/NameProduct"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

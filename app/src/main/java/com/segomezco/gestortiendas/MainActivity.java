@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
             isSplashFinished = true;
-        }, 2000);
+        }, 1000);
 
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);

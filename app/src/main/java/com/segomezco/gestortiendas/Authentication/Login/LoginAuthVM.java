@@ -8,9 +8,13 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.segomezco.gestortiendas.databinding.FragmentLoginBinding;
+
 import java.util.Objects;
 
 public class LoginAuthVM extends ViewModel{
+
+    private FragmentLoginBinding binding;
 
     private final MutableLiveData<Boolean> isLoading = new MutableLiveData<>();
     private final MutableLiveData<String> errorMessage = new MutableLiveData<>();
@@ -21,14 +25,7 @@ public class LoginAuthVM extends ViewModel{
     private final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
     public void login(String email, String password) {
-        if (!isValidEmail(email)) {
-            errorMessage.setValue("Email inválido");
-            return;
-        }
-        if (!isValidPassword(password)) {
-            errorMessage.setValue("La contraseña debe tener al menos 8 caracteres");
-            return;
-        }
+
         isLoading.setValue(true);
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
@@ -40,10 +37,10 @@ public class LoginAuthVM extends ViewModel{
                     }
                 });
     }
-    private boolean isValidEmail(String email) {
+    public boolean isValidEmail(String email) {
         return email != null && Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
-    private boolean isValidPassword(String password) {
+    public boolean isValidPassword(String password) {
         return password != null && password.trim().length() >= 8;
     }
 

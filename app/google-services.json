@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "672515155833",
-    "project_id": "gestortiendas-554a9",
-    "storage_bucket": "gestortiendas-554a9.firebasestorage.app"
+    "project_number": "432663012582",
+    "project_id": "gestortiendas-1d819",
+    "storage_bucket": "gestortiendas-1d819.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:672515155833:android:8ef4fdf6f32f5e5bd9b1a8",
+        "mobilesdk_app_id": "1:432663012582:android:0b54bb15895b18a2f1c727",
         "android_client_info": {
           "package_name": "com.segomezco.gestortiendas"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDOfsfhVtPklS3csZZWGmkl2Cd08KSnfCk"
+          "current_key": "AIzaSyDDWzLjzzbGAVURXQ9PDHvxhmzxsdyLPnY"
         }
       ],
       "services": {

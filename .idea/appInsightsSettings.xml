@@ -9,9 +9,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.segomezco.gestortiendas" />
-                  <option name="mobileSdkAppId" value="1:672515155833:android:8ef4fdf6f32f5e5bd9b1a8" />
-                  <option name="projectId" value="gestortiendas-554a9" />
-                  <option name="projectNumber" value="672515155833" />
+                  <option name="mobileSdkAppId" value="1:432663012582:android:0b54bb15895b18a2f1c727" />
+                  <option name="projectId" value="gestortiendas-1d819" />
+                  <option name="projectNumber" value="432663012582" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

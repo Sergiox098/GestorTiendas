@@ -49,8 +49,25 @@ public class LoginFragment extends Fragment {
 
 
         binding.btnLogin.setOnClickListener(v -> {
+
+            binding.tilCorreoElectronico.setError(null);
+            binding.tilPassword.setError(null);
+
+            boolean hasError = false;
+
             String email = Objects.requireNonNull(binding.etEmail.getText()).toString();
             String password = Objects.requireNonNull(binding.etPassword.getText()).toString();
+
+            if (!loginAuthVM.isValidEmail(email)) {
+                binding.tilCorreoElectronico.setError("Correo electrónico inválido");
+                hasError = true;
+            }
+            if (!loginAuthVM.isValidPassword(password)) {
+                binding.tilPassword.setError("La contraseña debe tener al menos 8 caracteres");
+                hasError = true;
+            }
+            if (hasError) {return;}
+
             loginAuthVM.login(email, password);
         });
 

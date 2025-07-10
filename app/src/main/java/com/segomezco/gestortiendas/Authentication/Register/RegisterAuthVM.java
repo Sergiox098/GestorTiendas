@@ -26,18 +26,6 @@ public class RegisterAuthVM extends ViewModel {
 
     public void register(String userName, String email, String phone,
              String document, String password, String confirmPassword) {
-        if (!isValidEmail(email)) {
-            errorMessage.setValue("Email inválido");
-            return;
-        }
-        if (!isValidPassword(password)) {
-            errorMessage.setValue("La contraseña debe tener al menos 8 caracteres");
-            return;
-        }
-        if (!password.equals(confirmPassword)) {
-            errorMessage.setValue("Las contraseñas no coinciden");
-            return;
-        }
 
         isLoading.setValue(true);
 
@@ -63,11 +51,11 @@ public class RegisterAuthVM extends ViewModel {
                 });
     }
 
-    private boolean isValidEmail(String email) {
+    public boolean isValidEmail(String email) {
         return email != null && Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
-    private boolean isValidPassword(String password) {
+    public boolean isValidPassword(String password) {
         return password != null && password.trim().length() >= 8;
     }
 }

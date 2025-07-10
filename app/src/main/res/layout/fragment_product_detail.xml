@@ -1,0 +1,112 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Botón atrás y título -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription=""
+                android:src="@drawable/ic_arrow_back_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/textTitle"
+                app:tint="@color/color_primary" />
+
+            <TextView
+                android:id="@+id/textTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Detalles del Producto"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="@color/color_primary"
+                app:layout_constraintStart_toEndOf="@id/btnBack"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Imagen del producto -->
+        <ImageView
+            android:id="@+id/ivProductImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="Imagen del producto" />
+
+        <!-- Tabla de detalles -->
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1">
+
+            <TableRow>
+                <TextView style="@style/DetailLabel" android:text="Nombre:" />
+                <TextView android:id="@+id/textName" style="@style/DetailValue" />
+            </TableRow>
+
+            <TableRow>
+                <TextView style="@style/DetailLabel" android:text="Precio:" />
+                <TextView android:id="@+id/textPrice" style="@style/DetailValue" />
+            </TableRow>
+
+            <TableRow>
+                <TextView style="@style/DetailLabel" android:text="Stock:" />
+                <TextView android:id="@+id/textStock" style="@style/DetailValue" />
+            </TableRow>
+
+            <TableRow>
+                <TextView style="@style/DetailLabel" android:text="Referencia:" />
+                <TextView android:id="@+id/textRef" style="@style/DetailValue" />
+            </TableRow>
+
+            <TableRow>
+                <TextView style="@style/DetailLabel" android:text="Categoría:" />
+                <TextView android:id="@+id/textCategory" style="@style/DetailValue" />
+            </TableRow>
+
+            <TableRow>
+                <TextView style="@style/DetailLabel" android:text="Marca:" />
+                <TextView android:id="@+id/textBrand" style="@style/DetailValue" />
+            </TableRow>
+
+            <TableRow>
+                <TextView style="@style/DetailLabel" android:text="Peso:" />
+                <TextView android:id="@+id/textWeight" style="@style/DetailValue" />
+            </TableRow>
+
+            <TableRow>
+                <TextView style="@style/DetailLabel" android:text="Proveedor:" />
+                <TextView android:id="@+id/textSupplier" style="@style/DetailValue" />
+            </TableRow>
+
+            <TableRow>
+                <TextView style="@style/DetailLabel" android:text="Contacto:" />
+                <TextView android:id="@+id/textContact" style="@style/DetailValue" />
+            </TableRow>
+
+            <TableRow>
+                <TextView style="@style/DetailLabel" android:text="Descripción:" />
+                <TextView android:id="@+id/textDescription" style="@style/DetailValue" />
+            </TableRow>
+
+        </TableLayout>
+    </LinearLayout>
+</ScrollView>

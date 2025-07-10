@@ -18,6 +18,9 @@ legacySupportV4 = "1.0.0"
 activity = "1.10.1"
 splashscreen = "1.0.1"
 gridlayout = "1.1.0"
+firebaseStorage = "21.0.2"
+glide = "4.15.1"
+glide-transformations = "4.3.0"
 
 [libraries]
 gridlayout = {group = "androidx.gridlayout", name = "gridlayout", version.ref = "gridlayout" }
@@ -33,10 +36,14 @@ lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-view
 navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigationFragment" }
 navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version.ref = "navigationUi" }
 firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
+firebase-storage = { group = "com.google.firebase", name = "firebase-storage", version.ref = "firebaseStorage" }
 annotation = { group = "androidx.annotation", name = "annotation", version.ref = "annotation" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
 legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacySupportV4" }
 activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
+glide-transformations = { module = "jp.wasabeef:glide-transformations", version.ref = "glide-transformations" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

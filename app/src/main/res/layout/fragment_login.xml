@@ -126,6 +126,7 @@
             android:layout_height="wrap_content"
             android:visibility="gone"
             android:layout_gravity="center"
+            android:indeterminate="true"
             app:indicatorSize="48dp"
             app:indicatorColor="@color/color_primary"
             app:trackThickness="6dp"

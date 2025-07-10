@@ -1,4 +1,6 @@
-package com.segomezco.gestortiendas.Product.CreateProduct;
+package com.segomezco.gestortiendas.Product;
+
+import java.io.Serializable;
 
 public class ProductModel {
     private String name;
@@ -11,6 +13,7 @@ public class ProductModel {
     private String weight;
     private String supplier;
     private String contact;
+    private String imageUrl;
 
     public ProductModel() {
     }
@@ -104,6 +107,12 @@ public class ProductModel {
     }
     public void setContact(String contact) {
         this.contact = contact;
+    }
+    public String getImageUrl() {
+        return imageUrl;
+    }
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
 

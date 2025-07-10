@@ -10,7 +10,10 @@
         android:label="Home">
         <action
             android:id="@+id/action_homeFragment_to_createProductFragment"
-            app:destination="@id/productFragment" />
+            app:destination="@id/createProductFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_readProductFragment"
+            app:destination="@id/productListFragment" />
     </fragment>
 
     <fragment
@@ -56,12 +59,37 @@
     </fragment>
 
     <fragment
-        android:id="@+id/productFragment"
+        android:id="@+id/createProductFragment"
         android:name="com.segomezco.gestortiendas.Product.CreateProduct.CreateProductFragment"
         android:label="Product">
         <action
-            android:id="@+id/action_createProductFragment_to_homeFragment"
+            android:id="@+id/action_createProductFragment_to_productListFragment"
+            app:destination="@id/productListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productListFragment"
+        android:name="com.segomezco.gestortiendas.Product.ReadProduct.ProductListFragment"
+        android:label="Product">
+        <action
+            android:id="@+id/action_productListFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_productListFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+        <action
+            android:id="@+id/action_productListFragment_to_createProductFragment"
+            app:destination="@id/createProductFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.segomezco.gestortiendas.Product.ReadProduct.ProductDetailFragment"
+        android:label="Product">
+        <action
+            android:id="@+id/action_productDetailFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_productDetailFragment_to_productListFragment"
+            app:destination="@id/productListFragment" />
     </fragment>
 
 

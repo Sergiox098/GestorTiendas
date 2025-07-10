@@ -72,12 +72,49 @@ public class RegisterFragment extends Fragment {
         });
 
         binding.btnRegister.setOnClickListener(v -> {
+
+            binding.tilNombre.setError(null);
+            binding.tilEmail.setError(null);
+            binding.tilPhone.setError(null);
+            binding.tilDocument.setError(null);
+            binding.tilPassword.setError(null);
+            binding.tilConfirmPassword.setError(null);
+
+            boolean hasError = false;
+
             String userName = Objects.requireNonNull(binding.etName.getText()).toString();
             String email = Objects.requireNonNull(binding.etEmail.getText()).toString();
             String phone = Objects.requireNonNull(binding.etPhone.getText()).toString();
             String document = Objects.requireNonNull(binding.etDocument.getText()).toString();
             String password = Objects.requireNonNull(binding.etPassword.getText()).toString();
             String confirmPassword = Objects.requireNonNull(binding.etConfirmPassword.getText()).toString();
+
+            if (userName.isEmpty()) {
+                binding.tilNombre.setError("El nombre es obligatorio");
+                hasError = true;
+            }
+            if (!registerAuthVM.isValidEmail(email)) {
+                binding.tilEmail.setError("Correo electrónico inválido");
+                hasError = true;
+            }
+            if (phone.isEmpty()) {
+                binding.tilPhone.setError("El teléfono es obligatorio");
+                hasError = true;
+            }
+            if (document.isEmpty()) {
+                binding.tilDocument.setError("El documento es obligatorio");
+                hasError = true;
+            }
+            if (!registerAuthVM.isValidPassword(password)) {
+                binding.tilPassword.setError("La contraseña debe tener al menos 8 caracteres");
+                hasError = true;
+            }
+            if (!password.equals(confirmPassword)) {
+                binding.tilConfirmPassword.setError("Las contraseñas no coinciden");
+                hasError = true;
+            }
+            if (hasError) {return;}
+
             registerAuthVM.register(userName, email, phone, document, password, confirmPassword);
         });
     }
