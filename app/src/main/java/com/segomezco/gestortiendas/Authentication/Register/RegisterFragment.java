@@ -109,7 +109,7 @@ public class RegisterFragment extends Fragment {
                 binding.tilPassword.setError("La contraseña debe tener al menos 8 caracteres");
                 hasError = true;
             }
-            if (!password.equals(confirmPassword)) {
+            if (password.isEmpty() ||!password.equals(confirmPassword)) {
                 binding.tilConfirmPassword.setError("Las contraseñas no coinciden");
                 hasError = true;
             }

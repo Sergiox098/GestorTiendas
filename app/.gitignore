@@ -1,1 +1,25 @@
-/build
+# Build
+/build/
+**/build/
+.cxx/
+.externalNativeBuild/
+
+# Gradle
+.gradle/
+local.properties
+
+# IDE
+.idea/
+*.iml
+
+# Firebase
+**/google-services.json
+**/GoogleService-Info.plist
+
+# Keystore
+*.jks
+*.keystore
+
+# OS
+.DS_Store
+Thumbs.db
