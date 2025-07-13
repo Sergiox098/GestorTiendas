@@ -1,4 +1,4 @@
-package com.segomezco.gestortiendas.Product.CreateProduct;
+package com.segomezco.gestortiendas.Store.CreateStore;
 
 import android.net.Uri;
 
@@ -10,12 +10,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-
-import com.segomezco.gestortiendas.Product.ProductModel;
+import com.segomezco.gestortiendas.Store.StoreModel;
 
 import java.util.Objects;
 
-public class ProductCreateVM extends ViewModel {
+public class StoreCreateVM extends ViewModel {
 
     private final MutableLiveData<Boolean> isLoading = new MutableLiveData<>();
     private final MutableLiveData<String> errorMessage = new MutableLiveData<>();
@@ -28,9 +27,8 @@ public class ProductCreateVM extends ViewModel {
     public LiveData<String> getErrorMessage() { return errorMessage; }
     public LiveData<Boolean> getRegisterSuccess() { return registerSuccess; }
 
-    public void CreateObject(String uid, String name, String ref, String description, String price,
-                             String category, String brand, String stock, String weight, String supplier,
-                             String contact, Uri imageUri, String selectedStore) {
+    public void CreateStore(String uid, String name, String description, String category,
+                             String openHours, String address, String phone, String owner, Uri imageUri) {
 
         isLoading.setValue(true);
 
@@ -40,27 +38,25 @@ public class ProductCreateVM extends ViewModel {
             return;
         }
 
-        DatabaseReference productsRef = firebaseDatabase.getReference("Users")
+        DatabaseReference storesRef = firebaseDatabase.getReference("Users")
                 .child(uid)
                 .child("Stores")
-                .child(selectedStore)
-                .child("Products")
+
                 .child(name);
 
         if (imageUri != null) {
             StorageReference imageRef = firebaseStorage.getReference()
-                    .child("Users").child(uid).child("Stores").
-                    child(selectedStore).child("Products").child(name).child("product_image.jpg");
+                    .child("Users").child(uid).child("Stores").child(name).child("store_image.jpg");
 
             imageRef.putFile(imageUri).addOnSuccessListener(taskSnapshot ->
                     imageRef.getDownloadUrl().addOnSuccessListener(downloadUri -> {
 
-                        ProductModel productData = new ProductModel(name, ref, description, price,
-                                category, brand, stock, weight, supplier, contact);
+                        StoreModel storeData = new StoreModel(name, description, category, openHours,
+                                address, phone, owner);
 
-                        productData.setImageUrl(downloadUri.toString());
+                        storeData.setImageUrl(downloadUri.toString());
 
-                        productsRef.setValue(productData).addOnCompleteListener(task -> {
+                        storesRef.setValue(storeData).addOnCompleteListener(task -> {
                             isLoading.setValue(false);
                             if (task.isSuccessful()) {
                                 registerSuccess.setValue(true);
@@ -81,9 +77,9 @@ public class ProductCreateVM extends ViewModel {
             });
 
         } else {
-            ProductModel productData = new ProductModel(name, ref, description, price,
-                    category, brand, stock, weight, supplier, contact);
-            productsRef.setValue(productData).addOnCompleteListener(task -> {
+            StoreModel storeData = new StoreModel(name, description, category, openHours,
+                    address, phone, owner);
+            storesRef.setValue(storeData).addOnCompleteListener(task -> {
                 isLoading.setValue(false);
                 if (task.isSuccessful()) {
                     registerSuccess.setValue(true);

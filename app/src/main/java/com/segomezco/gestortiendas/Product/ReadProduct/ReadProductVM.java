@@ -25,9 +25,10 @@ public class ReadProductVM extends ViewModel {
         return productListLiveData;
     }
 
-    public void readDatabase(String uid) {
+    public void readDatabase(String uid, String selectedStore) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference refProducts = database.getReference("Users").child(uid).child("Products");
+        DatabaseReference refProducts = database.getReference("Users").child(uid)
+                .child("Stores").child(selectedStore).child("Products");
 
         refProducts.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

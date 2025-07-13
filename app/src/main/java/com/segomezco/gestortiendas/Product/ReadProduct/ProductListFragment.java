@@ -1,5 +1,7 @@
 package com.segomezco.gestortiendas.Product.ReadProduct;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.segomezco.gestortiendas.R;
 import com.segomezco.gestortiendas.databinding.FragmentProductListBinding;
+
+import java.util.Objects;
 
 public class ProductListFragment extends Fragment {
 
@@ -32,6 +36,9 @@ public class ProductListFragment extends Fragment {
     public void onViewCreated(@NonNull View view,
                               @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        SharedPreferences prefs = requireContext().getSharedPreferences("store_prefs", Context.MODE_PRIVATE);
+        String selectedStore = prefs.getString("selected_store", null);
 
         ReadProductVM readProduct = new ViewModelProvider(this).get(ReadProductVM.class);
 
@@ -58,9 +65,8 @@ public class ProductListFragment extends Fragment {
             binding.recyclerView.setAdapter(adapter);
         });
 
-        // Cargar datos desde Firebase
-        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        readProduct.readDatabase(uid);
+        String uid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
+        readProduct.readDatabase(uid, selectedStore);
 
         binding.btnBack.setOnClickListener(v -> {
             NavHostFragment.findNavController(ProductListFragment.this)

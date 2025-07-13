@@ -65,7 +65,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                         .load(product.getImageUrl())
                         .placeholder(R.drawable.ic_loading)
                         .error(R.drawable.ic_warning)
-                        .apply(RequestOptions.bitmapTransform(new RoundedCorners(20))) // 20px de radio
+                        .apply(RequestOptions.bitmapTransform(new RoundedCorners(20)))
                         .into(binding.ivIcon);
             } else {
                 binding.ivIcon.setImageResource(R.drawable.ic_shopping_bag);

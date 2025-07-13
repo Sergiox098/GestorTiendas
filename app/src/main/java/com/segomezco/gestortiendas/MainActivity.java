@@ -1,5 +1,7 @@
 package com.segomezco.gestortiendas;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -20,6 +22,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
         splashScreen.setKeepOnScreenCondition(() -> !isSplashFinished);
+
+        SharedPreferences prefs = getSharedPreferences("store_prefs", Context.MODE_PRIVATE);
+        prefs.edit().clear().apply();
+
         super.onCreate(savedInstanceState);
 
         new Handler(Looper.getMainLooper()).postDelayed(() -> {

@@ -1,5 +1,7 @@
 package com.segomezco.gestortiendas.Product.CreateProduct;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.lifecycle.ViewModelProvider;
+
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.PickVisualMediaRequest;
 
@@ -109,10 +112,19 @@ public class CreateProductFragment extends Fragment {
             String ProductSupplier = Objects.requireNonNull(binding.etProductSupplier.getText()).toString().trim();
             String ProductContact = Objects.requireNonNull(binding.etSupplierContact.getText()).toString().trim();
 
+            SharedPreferences prefs = requireContext().getSharedPreferences("store_prefs", Context.MODE_PRIVATE);
+            String selectedStore = prefs.getString("selected_store", null);
+
             if (ProductName.isEmpty()) {
                 binding.fieldProductName.setError("El nombre es obligatorio");
                 hasError = true;
+            } else if (ProductName.contains(".") || ProductName.contains("$") ||
+                    ProductName.contains("#") || ProductName.contains("[") ||
+                    ProductName.contains("]") || ProductName.contains("/")) {
+                binding.fieldProductName.setError("El nombre no puede contener . $ # [ ] /");
+                hasError = true;
             }
+
             if (ProductRef.isEmpty()) {
                 binding.fieldProductRef.setError("La referencia es obligatoria");
                 hasError = true;
@@ -125,12 +137,16 @@ public class CreateProductFragment extends Fragment {
                 binding.fieldProductStock.setError("El stock es obligatorio");
                 hasError = true;
             }
+            if (selectedStore.isEmpty() || selectedStore == null)  {
+                Toast.makeText(getContext(), "Selecciona una tienda", Toast.LENGTH_SHORT).show();
+                hasError = true;
+            }
 
             if (hasError) return;
 
             productCreateVM.CreateObject(userID, ProductName, ProductRef, ProductDescription,
                     ProductPrice, ProductCategory, ProductBrand, ProductStock, ProductWeight,
-                    ProductSupplier, ProductContact, selectedImageUri);
+                    ProductSupplier, ProductContact, selectedImageUri, selectedStore);
         });
 
 

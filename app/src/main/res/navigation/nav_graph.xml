@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/onboardingFragment">
 
@@ -9,11 +10,15 @@
         android:name="com.segomezco.gestortiendas.Home.HomeFragment"
         android:label="Home">
         <action
-            android:id="@+id/action_homeFragment_to_createProductFragment"
-            app:destination="@id/createProductFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_readProductFragment"
             app:destination="@id/productListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_storeListFragment"
+            app:destination="@id/storeListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_onBoardingFragment"
+            app:destination="@id/onboardingFragment" />
+
     </fragment>
 
     <fragment
@@ -85,12 +90,31 @@
         android:name="com.segomezco.gestortiendas.Product.ReadProduct.ProductDetailFragment"
         android:label="Product">
         <action
-            android:id="@+id/action_productDetailFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-        <action
             android:id="@+id/action_productDetailFragment_to_productListFragment"
             app:destination="@id/productListFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/storeCreateFragment"
+        android:name="com.segomezco.gestortiendas.Store.CreateStore.CreateStoreFragment"
+        android:label="Store">
+        <action
+            android:id="@+id/action_createStoreFragment_to_storeListFragment"
+            app:destination="@id/storeListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/storeListFragment"
+        android:name="com.segomezco.gestortiendas.Store.ReadStore.StoreListFragment"
+        android:label="Store">
+        <action
+            android:id="@+id/action_storeListFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_storeListFragment_to_storeCreateFragment"
+            app:destination="@id/storeCreateFragment" />
+    </fragment>
+
 
 
 
