@@ -116,11 +116,11 @@ public class CreateStoreFragment extends Fragment {
             }
 
             if (StoreAddress.isEmpty()) {
-                binding.fieldAddress.setError("La referencia es obligatoria");
+                binding.fieldAddress.setError("El correo es obligatorio");
                 hasError = true;
             }
             if (StorePhone.isEmpty()) {
-                binding.fieldPhone.setError("El precio es obligatorio");
+                binding.fieldPhone.setError("El número de teléfono es obligatorio");
                 hasError = true;
             }
 

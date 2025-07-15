@@ -13,27 +13,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp">
-
-        <ImageView
-            android:id="@+id/ivIcon"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/ic_store"
-            android:layout_marginBottom="8dp"
-            android:contentDescription="Tienda"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+        android:padding="10dp">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintStart_toEndOf="@id/ivIcon"
+            android:padding="10dp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/radioSelectStore">
+            app:layout_constraintEnd_toStartOf="@id/contentItems">
 
         <TextView
             android:id="@+id/NameStore"
@@ -42,18 +32,15 @@
             android:text="Nombre Tienda"
             android:textColor="@color/text_primary"
             android:textSize="28sp"
-            android:textStyle="bold"
-            android:layout_marginStart="20dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ivIcon"/>
+            android:layout_marginBottom="10dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/DescriptionStore"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="8dp"
             android:text="Descripcion de la tienda"
+            android:justificationMode="inter_word"
             android:maxLines="20"
             android:ellipsize="end"
             android:textColor="@color/text_secondary"
@@ -68,7 +55,6 @@
             android:text="Dirección de la tienda"
             android:textColor="@color/text_secondary"
             android:textSize="12sp"
-            android:layout_marginStart="20dp"
             android:textAlignment="center"
             app:layout_constraintTop_toBottomOf="@id/DescriptionStore"
             app:layout_constraintStart_toEndOf="@+id/ivIcon"/>
@@ -80,7 +66,6 @@
             android:text="Número de contacto"
             android:textColor="@color/text_secondary"
             android:textSize="12sp"
-            android:layout_marginStart="20dp"
             android:textAlignment="center"
             app:layout_constraintTop_toBottomOf="@id/AddressStore"
             app:layout_constraintStart_toEndOf="@+id/ivIcon"/>
@@ -92,7 +77,6 @@
             android:text="Categoría de la Tienda"
             android:textColor="@color/text_secondary"
             android:textSize="12sp"
-            android:layout_marginStart="20dp"
             android:textAlignment="center"
             app:layout_constraintTop_toBottomOf="@id/PhoneStore"
             app:layout_constraintStart_toEndOf="@+id/ivIcon"/>
@@ -103,7 +87,6 @@
             android:text="Horario de atención"
             android:textColor="@color/text_secondary"
             android:textSize="12sp"
-            android:layout_marginStart="20dp"
             android:textAlignment="center"
             app:layout_constraintTop_toBottomOf="@id/CategoryStore"
             app:layout_constraintStart_toEndOf="@+id/ivIcon"/>
@@ -115,27 +98,44 @@
             android:text="Propietario de la tienda"
             android:textColor="@color/text_secondary"
             android:textSize="12sp"
-            android:layout_marginStart="20dp"
             android:textAlignment="center"
             app:layout_constraintTop_toBottomOf="@id/ScheduleStore"
             app:layout_constraintStart_toEndOf="@+id/ivIcon"/>
 
         </LinearLayout>
 
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/radioSelectStore"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/contentItems"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:scaleX="1.5"
-            android:scaleY="1.5"
-            android:rotation="180"
-            android:focusable="false"
-            android:layout_marginEnd="8dp"
-            android:focusableInTouchMode="false"
-            android:contentDescription="Seleccionar tienda"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivIcon"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="Tienda"
+                android:foregroundGravity="top"
+                android:src="@drawable/ic_store" />
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/radioSelectStore"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="start"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="Seleccionar tienda"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:rotation="180"
+                android:scaleX="1.5"
+                android:scaleY="1.5" />
+
+        </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
