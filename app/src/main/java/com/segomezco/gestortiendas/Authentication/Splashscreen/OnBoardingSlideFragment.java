@@ -46,22 +46,22 @@ public class OnBoardingSlideFragment extends Fragment {
             case 0:
                 binding.tituloOnboarding.setText(R.string.onboarding_title_0);
                 binding.descripcionOnboarding.setText(R.string.onboarding_desc_0);
-                binding.imagenOnboarding.setImageResource(R.drawable.ic_launcher_foreground);
+                binding.imagenOnboarding.setImageResource(R.drawable.slide_1);
                 break;
             case 1:
                 binding.tituloOnboarding.setText(R.string.onboarding_title_1);
                 binding.descripcionOnboarding.setText(R.string.onboarding_desc_1);
-                binding.imagenOnboarding.setImageResource(R.drawable.ic_launcher_foreground);
+                binding.imagenOnboarding.setImageResource(R.drawable.slide_2);
                 break;
             case 2:
                 binding.tituloOnboarding.setText(R.string.onboarding_title_2);
                 binding.descripcionOnboarding.setText(R.string.onboarding_desc_2);
-                binding.imagenOnboarding.setImageResource(R.drawable.ic_launcher_foreground);
+                binding.imagenOnboarding.setImageResource(R.drawable.slide_3);
                 break;
             case 3:
                 binding.tituloOnboarding.setText(R.string.onboarding_title_3);
                 binding.descripcionOnboarding.setText(R.string.onboarding_desc_3);
-                binding.imagenOnboarding.setImageResource(R.drawable.ic_launcher_foreground);
+                binding.imagenOnboarding.setImageResource(R.drawable.slide_4);
                 break;
         }
     }

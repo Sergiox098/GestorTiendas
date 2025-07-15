@@ -1,43 +1,45 @@
-package com.segomezco.gestortiendas.Product.CreateProduct;
+package com.segomezco.gestortiendas.Product.EditProduct;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-import android.net.Uri;
 
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.PickVisualMediaRequest;
 
+import com.bumptech.glide.Glide;
+
 import com.google.firebase.auth.FirebaseAuth;
 
-import com.segomezco.gestortiendas.databinding.FragmentProductCreateBinding;
 import com.segomezco.gestortiendas.R;
+import com.segomezco.gestortiendas.databinding.FragmentProductEditBinding;
 
 import java.util.Objects;
 
-public class CreateProductFragment extends Fragment {
+public class EditProductFragment extends Fragment {
 
-    private FragmentProductCreateBinding binding;
+    private FragmentProductEditBinding binding;
+
     private Uri selectedImageUri;
     private ActivityResultLauncher<PickVisualMediaRequest> pickMediaLauncher;
-
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        binding = FragmentProductCreateBinding.inflate(inflater, container, false);
+        binding = FragmentProductEditBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
@@ -58,39 +60,72 @@ public class CreateProductFragment extends Fragment {
                     }
                 });
 
+        ProductEditVM productEditVM = new ViewModelProvider(this).get(ProductEditVM.class);
 
-        ProductCreateVM productCreateVM = new ViewModelProvider(this).get(ProductCreateVM.class);
+        Bundle args = getArguments();
+        if (args != null) {
 
-        binding.btnBack.setOnClickListener(v -> NavHostFragment.findNavController
-                (CreateProductFragment.this).navigate
-                (R.id.action_createProductFragment_to_productListFragment));
+            binding.etProductName.setText(args.getString("name", ""));
+            binding.etProductRef.setText(args.getString("ref", ""));
+            binding.etProductDescription.setText(args.getString("description", ""));
+            binding.etProductPrice.setText(args.getString("price", ""));
+            binding.etProductCategory.setText(args.getString("category", ""));
+            binding.etProductBrand.setText(args.getString("brand", ""));
+            binding.etProductStock.setText(args.getString("stock", ""));
+            binding.etProductWeight.setText(args.getString("weight", ""));
+            binding.etProductSupplier.setText(args.getString("supplier", ""));
+            binding.etSupplierContact.setText(args.getString("contact", ""));
 
-        productCreateVM.getIsLoading().observe(getViewLifecycleOwner(), isLoading -> {
+            String imageUrl = args.getString("imageUrl", "");
+            if (!imageUrl.isEmpty()) {
+                binding.imagePreview.setVisibility(View.VISIBLE);
+                Glide.with(requireContext())
+                        .load(imageUrl)
+                        .placeholder(R.drawable.ic_loading)
+                        .error(R.drawable.ic_warning)
+                        .into(binding.imagePreview);
+            } else {
+                binding.imagePreview.setVisibility(View.GONE);
+            }
+        }
+
+        binding.btnAddImage.setOnClickListener(v -> {
+            PickVisualMediaRequest request = new PickVisualMediaRequest.Builder()
+                    .setMediaType(ActivityResultContracts.PickVisualMedia.ImageOnly.INSTANCE)
+                    .build();
+            pickMediaLauncher.launch(request);
+        });
+
+        productEditVM.getIsLoading().observe(getViewLifecycleOwner(), isLoading -> {
             if (isLoading != null) {
                 binding.progressBar.setVisibility(isLoading ? View.VISIBLE : View.GONE);
-                binding.btnSaveProduct.setEnabled(!isLoading);
+                binding.btnEditProduct.setEnabled(!isLoading);
             }
         });
 
-        productCreateVM.getErrorMessage().observe(getViewLifecycleOwner(), errorMsg -> {
+        productEditVM.getErrorMessage().observe(getViewLifecycleOwner(), errorMsg -> {
             if (errorMsg != null && !errorMsg.isEmpty()) {
                 Toast.makeText(getContext(), errorMsg, Toast.LENGTH_SHORT).show();
                 binding.progressBar.setVisibility(View.GONE);
-                binding.btnSaveProduct.setEnabled(true);
+                binding.btnEditProduct.setEnabled(true);
             }
         });
 
-        productCreateVM.getRegisterSuccess().observe(getViewLifecycleOwner(), success -> {
+        productEditVM.getRegisterSuccess().observe(getViewLifecycleOwner(), success -> {
             if (Boolean.TRUE.equals(success)) {
-                Toast.makeText(getContext(), "Registro exitoso", Toast.LENGTH_SHORT).show();
-                Log.d("RegisterFragment", "Registro exitoso");
-                NavHostFragment.findNavController(CreateProductFragment.this)
-                        .navigate(R.id.action_createProductFragment_to_productListFragment);
+                Toast.makeText(getContext(), "Edicion exitosa", Toast.LENGTH_SHORT).show();
+                Log.d("RegisterFragment", "Edicion exitosa");
+                NavHostFragment.findNavController(EditProductFragment.this)
+                        .navigate(R.id.action_editProductFragment_to_productListFragment);
             }
         });
 
+        binding.btnEditProduct.setOnClickListener(v -> {
 
-        binding.btnSaveProduct.setOnClickListener(v -> {
+            assert args != null;
+            String oldName = args.getString("name", "");
+
+            String oldImage = args.getString("imageUrl", "");
 
             binding.fieldProductName.setError(null);
             binding.fieldProductRef.setError(null);
@@ -117,6 +152,7 @@ public class CreateProductFragment extends Fragment {
             if (ProductName.isEmpty()) {
                 binding.fieldProductName.setError("El nombre es obligatorio");
                 hasError = true;
+
             } else if (ProductName.contains(".") || ProductName.contains("$") ||
                     ProductName.contains("#") || ProductName.contains("[") ||
                     ProductName.contains("]") || ProductName.contains("/")) {
@@ -136,28 +172,24 @@ public class CreateProductFragment extends Fragment {
                 binding.fieldProductStock.setError("El stock es obligatorio");
                 hasError = true;
             }
+
             if (selectedStore.isEmpty() || selectedStore == null)  {
                 Toast.makeText(getContext(), "Selecciona una tienda", Toast.LENGTH_SHORT).show();
                 hasError = true;
             }
 
+
             if (hasError) return;
 
-            productCreateVM.CreateObject(userID, ProductName, ProductRef, ProductDescription,
+            productEditVM.EditObject(userID, oldName, ProductName, ProductRef, ProductDescription,
                     ProductPrice, ProductCategory, ProductBrand, ProductStock, ProductWeight,
-                    ProductSupplier, ProductContact, selectedImageUri, selectedStore);
+                    ProductSupplier, ProductContact, selectedImageUri, oldImage, selectedStore);
         });
 
-
-        binding.btnAddImage.setOnClickListener(v -> {
-            PickVisualMediaRequest request = new PickVisualMediaRequest.Builder()
-                    .setMediaType(ActivityResultContracts.PickVisualMedia.ImageOnly.INSTANCE)
-                    .build();
-            pickMediaLauncher.launch(request);
-        });
-
+        binding.btnBack.setOnClickListener(v -> NavHostFragment.findNavController
+                (EditProductFragment.this).navigate
+                (R.id.action_editProductFragment_to_productListFragment));
     }
-
 
     @Override
     public void onDestroyView(){

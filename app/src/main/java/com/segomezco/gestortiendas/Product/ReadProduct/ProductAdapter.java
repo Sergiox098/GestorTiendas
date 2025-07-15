@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.segomezco.gestortiendas.Product.ProductModel;
-import com.segomezco.gestortiendas.databinding.CardviewProductBinding;
+import com.segomezco.gestortiendas.databinding.ProductCardviewBinding;
 import com.segomezco.gestortiendas.R;
 
 import com.bumptech.glide.Glide;
@@ -32,7 +32,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        CardviewProductBinding binding = CardviewProductBinding.inflate(
+        ProductCardviewBinding binding = ProductCardviewBinding.inflate(
                 LayoutInflater.from(parent.getContext()), parent, false);
         return new ProductViewHolder(binding);
     }
@@ -48,9 +48,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     }
 
     static class ProductViewHolder extends RecyclerView.ViewHolder {
-        private final CardviewProductBinding binding;
+        private final ProductCardviewBinding binding;
 
-        public ProductViewHolder(CardviewProductBinding binding) {
+        public ProductViewHolder(ProductCardviewBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }

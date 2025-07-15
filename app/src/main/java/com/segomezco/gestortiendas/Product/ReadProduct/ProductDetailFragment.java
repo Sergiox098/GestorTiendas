@@ -1,24 +1,32 @@
 package com.segomezco.gestortiendas.Product.ReadProduct;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.bumptech.glide.Glide;
-
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
+
+import com.google.firebase.auth.FirebaseAuth;
+
 import com.segomezco.gestortiendas.databinding.FragmentProductDetailBinding;
 import com.segomezco.gestortiendas.R;
 
-public class ProductDetailFragment extends Fragment {
+import java.util.Objects;
 
+public class ProductDetailFragment extends Fragment {
     private FragmentProductDetailBinding binding;
 
     @Override
@@ -35,7 +43,10 @@ public class ProductDetailFragment extends Fragment {
                               @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Obtener el Bundle con los datos del producto
+        SharedPreferences prefs = requireContext().getSharedPreferences("store_prefs", Context.MODE_PRIVATE);
+        String selectedStore = prefs.getString("selected_store", null);
+        ProductDeleteVM productDeleteVM = new ViewModelProvider(this).get(ProductDeleteVM.class);
+
         if (getArguments() != null) {
             Bundle args = getArguments();
             binding.textName.setText(args.getString("name", ""));
@@ -58,14 +69,46 @@ public class ProductDetailFragment extends Fragment {
                         .apply(RequestOptions.bitmapTransform(new RoundedCorners(40)))
                         .into(binding.ivProductImage);
             } else {
-                binding.ivProductImage.setImageResource(R.drawable.ic_warning);
+                binding.ivProductImage.setImageResource(R.drawable.ic_shopping_bag);
             }
 
         }
+
         binding.btnBack.setOnClickListener(v -> {
             NavHostFragment.findNavController(ProductDetailFragment.this)
                     .navigate(R.id.action_productDetailFragment_to_productListFragment);
         });
+
+        binding.btnEditProduct.setOnClickListener(v -> {
+            if (getArguments() != null) {
+                Bundle args = getArguments();
+                NavHostFragment.findNavController(ProductDetailFragment.this)
+                        .navigate(R.id.action_productDetailFragment_to_editProductFragment, args);
+            }
+        });
+
+        productDeleteVM.getSuccess().observe(getViewLifecycleOwner(), isSuccess -> {
+            if (isSuccess) {
+                NavHostFragment.findNavController(ProductDetailFragment.this)
+                        .navigate(R.id.action_productDetailFragment_to_productListFragment);
+            }
+        });
+
+        binding.btnDeleteProduct.setOnClickListener( v -> {
+
+            String userID = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
+            String productName = binding.textName.getText().toString();
+
+                new AlertDialog.Builder(requireContext())
+                        .setTitle("Eliminar producto")
+                        .setMessage("¿Estás seguro de que quieres eliminar este producto?")
+                        .setPositiveButton("Sí", (dialog, which) -> {
+                            productDeleteVM.deleteProduct(getContext(),userID, selectedStore, productName);
+                        })
+                        .setNegativeButton("Cancelar", null)
+                        .show();
+        });
+
     }
 
     @Override

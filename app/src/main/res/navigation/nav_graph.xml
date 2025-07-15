@@ -18,7 +18,6 @@
         <action
             android:id="@+id/action_homeFragment_to_onBoardingFragment"
             app:destination="@id/onboardingFragment" />
-
     </fragment>
 
     <fragment
@@ -71,6 +70,16 @@
             android:id="@+id/action_createProductFragment_to_productListFragment"
             app:destination="@id/productListFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/editProductFragment"
+        android:name="com.segomezco.gestortiendas.Product.EditProduct.EditProductFragment"
+        android:label="Product">
+        <action
+            android:id="@+id/action_editProductFragment_to_productListFragment"
+            app:destination="@id/productListFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/productListFragment"
         android:name="com.segomezco.gestortiendas.Product.ReadProduct.ProductListFragment"
@@ -92,6 +101,9 @@
         <action
             android:id="@+id/action_productDetailFragment_to_productListFragment"
             app:destination="@id/productListFragment" />
+        <action
+            android:id="@+id/action_productDetailFragment_to_editProductFragment"
+            app:destination="@id/editProductFragment" />
     </fragment>
 
     <fragment

@@ -21,7 +21,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription=""
+                android:contentDescription="Botón para regresar"
                 android:src="@drawable/ic_arrow_back_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -104,9 +104,49 @@
 
             <TableRow>
                 <TextView style="@style/DetailLabel" android:text="Descripción:" />
-                <TextView android:id="@+id/textDescription" style="@style/DetailValue" />
+                <TextView
+                    android:id="@+id/textDescription"
+                    style="@style/DetailValue"
+                    android:maxLines="20"
+                    android:ellipsize="end" />
             </TableRow>
 
         </TableLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEditProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Editar Producto"
+                android:textSize="16sp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/btnDeleteProduct"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDeleteProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Eliminar Producto"
+                android:backgroundTint="@color/error_color"
+                android:textSize="16sp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
     </LinearLayout>
 </ScrollView>
