@@ -44,6 +44,14 @@ Puedes descargar el APK directamente desde el siguiente enlace:
 
 ---
 
+## 📚 Documentación
+
+La Documentación completa está aquí
+
+📦 [Documentación](https://docs.google.com/document/d/18hYIUgthh-78YU7Okep67qHPZeLp3Sn2N6roxmmS3WM/edit?usp=sharing)
+
+---
+
 ## 📂 Estructura del Proyecto
 
 > GestorTiendas/
